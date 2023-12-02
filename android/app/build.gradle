@@ -55,7 +55,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
         applicationId "com.nartec.alessa_v2"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName 
@@ -73,11 +73,11 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
    
     buildTypes {
         release {
-            // shrinkResources false
-            // minifyEnabled false
+            shrinkResources false
+            minifyEnabled false
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            // signingConfig signingConfigs.debug
+            signingConfig signingConfigs.debug
             signingConfig signingConfigs.release
         }
     }
@@ -89,5 +89,6 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.multidex:multidex:2.0.1'
     // implementation 'com.google.android.material:material:1.12.0'
 }
